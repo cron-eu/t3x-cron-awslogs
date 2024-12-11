@@ -1,0 +1,22 @@
+{
+  "name": "cron-eu/cron-awslogs",
+  "type": "typo3-cms-extension",
+  "description": "cron AWS CloudWatch LogWriter",
+  "homepage": "https://github.com/cron-eu/t3x-cron-awslogs",
+  "license": ["GPL-2.0-or-later"],
+  "require": {
+    "typo3/cms-core": "^12.4",
+    "aws/aws-sdk-php": "^3",
+    "guzzlehttp/guzzle": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Cron\\CronAwslogs\\": "Classes/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "cron_awslogs"
+    }
+  }
+}
