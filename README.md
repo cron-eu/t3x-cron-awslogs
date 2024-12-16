@@ -37,7 +37,21 @@ AWS_SECRET_ACCESS_KEY=
 
 ### AWS
 
-In ECS the credentials should be available as an IAM ACN-Role.
+In ECS the permissions should be available as an IAM TaskRole policy, for example:
+
+```
+CloudWatchLogsPolicy:
+  Type: AWS::IAM::ManagedPolicy
+  Properties:
+    PolicyDocument:
+      Version: "2012-10-17"
+      Statement:
+        - Effect: "Allow"
+          Action:
+            - "logs:CreateLogStream"
+            - "logs:PutLogEvents"
+          Resource: !GetAtt LogGroup.Arn
+```
 
 ## Technical Details
 
