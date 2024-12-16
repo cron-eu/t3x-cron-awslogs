@@ -78,7 +78,7 @@ final class ReplaceFileWriter
         }
 
         $stream = self::extractStream($options);
-        $ref[\Cron\CronAwslogs\LogWriter\CloudWatchWriter::class] = ['stream' => sprintf("typo3/%s", $stream)];
+        $ref[\Cron\CronAwslogs\LogWriter\CloudWatchWriter::class] = ['stream' => sprintf("/typo3/%s", $stream)];
 
     }
 }
