@@ -6,7 +6,6 @@ namespace Cron\CronAwslogs\LogWriter;
 
 use Aws\CloudWatchLogs\Exception\CloudWatchLogsException;
 use Cron\CronAwslogs\Util\CloudWatchClient;
-use GuzzleHttp\Utils;
 use TYPO3\CMS\Core\Log\LogRecord;
 use TYPO3\CMS\Core\Log\Writer\AbstractWriter;
 
@@ -53,7 +52,7 @@ final class CloudWatchWriter extends AbstractWriter
         CloudWatchClient::get()->putLogEvents([
             'logEvents' => [
                 [
-                    'message' => Utils::jsonEncode($record->toArray()),
+                    'message' => json_encode($record->toArray()),
                     // in milliseconds
                     'timestamp' => round($record->getCreated() * 1000)
                 ],
